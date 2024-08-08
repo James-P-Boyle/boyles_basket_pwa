@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
-import useLocalStorage from "../hooks/useLocalStorage"
-import { List } from "../App"
+import useLocalStorage from "../../hooks/useLocalStorage"
+import { List } from "../../App"
 
-export default function ShowList() {
+export default function Show() {
   const { id } = useParams<{ id: string }>()
   const [ lists ] = useLocalStorage<List[]>('lists', {})
 

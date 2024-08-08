@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import CreateList from './components/CreateList';
-import { Route, Routes } from 'react-router-dom';
-import ListOverview from './components/ListOverview';
-import ShowList from './components/ShowList';
-import RouterOutlet from './layout/RouterOutlet';
-import Header from './components/Header';
-import useLocalStorage from './hooks/useLocalStorage';
+import CreateList from './components/lists/Create'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import ListIndex from './components/lists/Index'
+import ShowList from './components/lists/Show'
+import RouterOutlet from './layouts/RouterOutlet'
+import Header from './partials/Header'
+import useLocalStorage from './hooks/useLocalStorage'
 
 export interface List {
   name: string
@@ -38,7 +37,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<RouterOutlet />}>
-              <Route index element={<ListOverview lists={lists}/>} />
+              <Route index element={<ListIndex lists={lists}/>} />
               <Route path="list/:id" element={<ShowList />} />
             </Route>
           </Routes>

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
-import { List } from "../App"
+import { List } from "../../App"
 
-interface ListOverviewProps {
+interface IndexProps {
   lists: List[]
 }
 
-export default function ListOverview({
+export default function Index({
   lists
-}: ListOverviewProps) {
+}: IndexProps) {
 
   return (
     <ul className="list">
