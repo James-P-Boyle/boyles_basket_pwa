@@ -3,10 +3,10 @@ import { v4 as id} from 'uuid';
 import { List } from "../App"
 
 interface CreateListProps {
-  setLists: React.Dispatch<React.SetStateAction<List[]>>
+  addNewList: (newList: List) => void
 }
 export default function CreateList({
-  setLists
+  addNewList
 }: CreateListProps) {
 
   const [showInput, setShowInput] = useState(false)
@@ -26,7 +26,7 @@ export default function CreateList({
       items: []
     }
 
-    setLists(prev => prev ? [...prev, newList] : [newList])
+    addNewList(newList)
     setNewListName('')
     toggleInput()
   }
