@@ -11,10 +11,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+}
+
+body {
+  font-size: 1.5em;
+  font-weight: 500;
+  @media screen and (max-width:650px) {
+    font-size: 1.2em;
+  }
 }
 
 a {
-  font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
@@ -25,11 +34,6 @@ a:hover {
 
 body {
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -44,7 +48,6 @@ button {
   transition: border-color 0.25s;
 }
 
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -58,4 +61,11 @@ input {
   font-weight: 500;
   border-radius: 8px;
   border: 1px solid transparent;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
 }

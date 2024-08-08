@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import CreateList from './components/CreateList';
 import { Route, Routes } from 'react-router-dom';
-import AllLists from './components/AllLists';
+import ListOverview from './components/ListOverview';
 import ShowList from './components/ShowList';
 import RouterOutlet from './layout/RouterOutlet';
 import Header from './components/Header';
@@ -38,7 +38,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<RouterOutlet />}>
-              <Route index element={<AllLists lists={lists}/>} />
+              <Route index element={<ListOverview lists={lists}/>} />
               <Route path="list/:id" element={<ShowList />} />
             </Route>
           </Routes>

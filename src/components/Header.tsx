@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import { Link } from "react-router-dom"
 
 interface HeaderProps {
   children: ReactNode
@@ -9,7 +10,9 @@ export default function Header({
 }: HeaderProps) {
   return (
     <header>
-      <span>Shopping List Tracker</span>
+      <Link to="/" title="Go to main overview">
+        Shopping List Tracker
+      </Link>
 
       <div>
         {children}
