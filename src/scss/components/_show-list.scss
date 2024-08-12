@@ -1,8 +1,40 @@
-#showList {
-  .date {
-    font-size: 1rem;
+#show {
+  display: grid;
+  gap: 2rem;
+
+  .showHead {
+    .date {
+      font-size: 1rem;
+    }
+    h1 {
+      margin: 0;
+    }
   }
-  h1 {
-    margin: 0;
+
+  .showList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-left: 0.4rem;
+
+      .delete {
+        background-color: transparent;
+        padding: 0.4rem;
+        svg {
+          stroke: white;
+          height: 1.2rem;
+          width: 1.2rem;
+          &:hover {
+            stroke: rgba(217, 19, 19, 0.968);
+          }
+        }
+      }
+    }
   }
 }

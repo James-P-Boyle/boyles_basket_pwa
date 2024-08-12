@@ -25,14 +25,14 @@ export default function Create({
     }
 
     addNewList(newList)
-    navigate(`/list/${listId}`)
+    // navigate(`/list/${listId}`)
   }
 
   return (
     <div id="createList">
       <InputToggleButton
         ctaLabel="Create New"
-        submitLabel="Save Name"
+        submitLabel="Continue..."
         placeholderText="New list name"
         onSave={handleCreateList}
       />

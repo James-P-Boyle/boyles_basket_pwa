@@ -24,7 +24,7 @@ function App() {
   const [lists, setLists] = useLocalStorage<List[]>('lists', {})
 
   const addNewList = (newList: List) => {
-    setLists(prev => [...prev, newList])
+    setLists(prev => prev ? [newList, ...prev] : [ newList ])
   }
 
   return (

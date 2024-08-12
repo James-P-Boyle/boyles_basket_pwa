@@ -1,0 +1,14 @@
+#addItems {
+  display: flex;
+  gap: 0.5rem;
+
+  input {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    width: 100%;
+  }
+
+  button {
+    flex-shrink: 0;
+  }
+}

@@ -39,7 +39,7 @@ export default function InputToggleButton({
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={placeholderText}
           />
-          <button onClick={handleSave}>{submitLabel}</button>
+          <button disabled={!inputValue.length} onClick={handleSave}>{submitLabel}</button>
         </>
       ) : (
         <button onClick={toggleInput}>{ctaLabel}</button>

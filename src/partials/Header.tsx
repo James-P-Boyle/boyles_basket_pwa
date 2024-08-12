@@ -11,7 +11,7 @@ export default function Header({
   return (
     <header>
       <Link to="/" title="Go to main overview">
-        Shopping List Tracker
+        Sh
       </Link>
 
       <div>
