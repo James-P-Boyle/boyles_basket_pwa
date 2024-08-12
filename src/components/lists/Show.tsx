@@ -17,8 +17,10 @@ export default function Show() {
     <div id="show">
 
       <div className="showHead">
-        <span className="date">{new Date(list.createdAt).toLocaleDateString()}</span>
-        <h1>{list.name}</h1>
+        <div>
+          <span className="date">{new Date(list.createdAt).toLocaleDateString()}</span>
+          <h1>{list.name}</h1>
+        </div>
 
         <AddItems onAddItem={addNewItem} />
       </div>
