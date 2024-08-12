@@ -1,46 +1,11 @@
 import { useParams } from "react-router-dom"
-import useLocalStorage from "../../hooks/useLocalStorage"
-import { Item, List } from '../../App'
 import AddItems from "./AddItems"
-import { useState } from "react"
 import ListItem from "./ListItem"
+import useList from "../../hooks/useList"
 
 export default function Show() {
   const { id } = useParams<{ id: string }>()
-  const [ lists, setLists ] = useLocalStorage<List[]>('lists', {})
-
-  const [newItem, setNewItem] = useState<Item[] | null>([])
-
-  const list: List | undefined = lists.find(list => list.id == id)
-
-  const addNewItem = (newItem: Item) => {
-    setNewItem((prevItems) => prevItems ? [...prevItems, newItem] : [newItem])
-    updateList(newItem)
-  }
-
-  const updateList = (newItem: Item) => {
-    if (!list) return
-
-    const updatedList: List = {
-      ...list,
-      items: [...list.items, newItem],
-    }
-    const updatedLists = lists.map((l) => (l.id === list.id ? updatedList : l))
-    setLists(updatedLists)
-  }
-
-  const deleteItem = (item: Item) => {
-    if (!list) return
-
-    const updatedItem = list.items.filter(i => i !== item)
-    const updatedList: List = {
-      ...list,
-      items: updatedItem
-    }
-
-    const updatedLists = lists.map(l => l.id === list.id ? updatedList : l)
-    setLists(updatedLists)
-  }
+  const { list, addNewItem, deleteItem } = useList(id!)
 
   if(!list){
     return (

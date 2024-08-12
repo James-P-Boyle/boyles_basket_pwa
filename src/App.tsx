@@ -5,6 +5,7 @@ import ShowList from './components/lists/Show'
 import RouterOutlet from './layouts/RouterOutlet'
 import Header from './partials/Header'
 import useLocalStorage from './hooks/useLocalStorage'
+import useList from './hooks/useList'
 
 export interface List {
   name: string
@@ -21,11 +22,7 @@ export interface Item {
 
 function App() {
 
-  const [lists, setLists] = useLocalStorage<List[]>('lists', {})
-
-  const addNewList = (newList: List) => {
-    setLists(prev => prev ? [newList, ...prev] : [ newList ])
-  }
+  const {lists, addNewList} = useList()
 
   return (
     <>
