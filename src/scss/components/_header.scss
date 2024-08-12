@@ -1,27 +1,13 @@
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-  padding: 1rem;
-
-  a {
-    font-size: 2em;
-    line-height: 1.1;
-    margin: 0.5rem 0;
-    font-weight: 600;
+  text-align: center;
+  margin: 1rem;
+  .date {
+    font-size: 1rem;
+  }
+  h1 {
+    margin: 0;
   }
 
-  @media screen and (max-width:650px) {
-    flex-direction: column;
-    align-items: normal;
-
-    a {
-      text-align: center;
-    }
-  }
 }
 
 

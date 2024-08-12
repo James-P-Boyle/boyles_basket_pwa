@@ -11,20 +11,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-
 }
 
 body {
   font-size: 1.5em;
   font-weight: 500;
+  margin: 0;
   @media screen and (max-width:650px) {
     font-size: 1.2em;
   }
 }
 
 a {
-  color: #646cff;
+  color: #fff;
   text-decoration: inherit;
 }
 
@@ -52,15 +51,17 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-input {
-  padding: 0.5rem;
-}
 
 input {
   font-size: 1em;
+  padding: 0.5rem;
   font-weight: 500;
   border-radius: 8px;
   border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  max-width: 100%;
+  flex-grow: 1;
 }
 
 ul {
@@ -68,4 +69,20 @@ ul {
   flex-direction: column;
   gap: 0.5rem;
   padding: 0;
+}
+
+#backButton {
+  background-color: transparent;
+  position: fixed;
+  left: 0.5rem;
+  top: 1rem;
+  padding: 0;
+  svg {
+    stroke: white;
+    height: 2.2rem;
+    width: 2.2rem;
+    &:hover {
+      stroke:  #21fc0d;
+    }
+  }
 }

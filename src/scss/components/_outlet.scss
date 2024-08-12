@@ -1,9 +1,11 @@
 aside {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #3B3B3B;
-  border: 2px solid #1a1a1a;
-  border-radius: 8px;
-  height: min-content;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #3B3B3B;
+    border-radius: 8px;
+  @media screen and (min-width:650px) {
+    border: 2px solid #1a1a1a;
+  }
+
   padding: 1rem;
 }

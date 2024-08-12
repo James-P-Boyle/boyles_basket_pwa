@@ -1,22 +1,11 @@
-import { ReactNode } from "react"
-import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { HeaderContext } from "../contexts/HeaderContext"
 
-interface HeaderProps {
-  children: ReactNode
-}
-
-export default function Header({
-  children
-}: HeaderProps) {
+export default function Header() {
+  const headerContext = useContext(HeaderContext)
   return (
     <header>
-      <Link to="/" title="Go to main overview">
-        Sh
-      </Link>
-
-      <div>
-        {children}
-      </div>
+      {headerContext?.headerContent}
     </header>
   )
 };

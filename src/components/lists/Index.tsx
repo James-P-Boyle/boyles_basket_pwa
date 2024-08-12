@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom"
-import { List } from "../../App"
+import useList from "../../hooks/useList"
+import CreateList from './Create'
 
-interface IndexProps {
-  lists: List[]
-}
+export default function Index() {
 
-export default function Index({
-  lists
-}: IndexProps) {
+  const {lists, addNewList} = useList()
 
   return (
-    <ul className="list">
-      {lists.map((l) => (
-        <Link className="listLink" to={`/list/${l.id}`} key={l.id}>
-          <span>{l.name}</span>
-        </Link>
-      ))}
-    </ul>
+    <>
+
+      <CreateList addNewList={addNewList} />
+
+      <ul className="list">
+        {lists.map((l) => (
+          <Link className="listLink" to={`/list/${l.id}`} key={l.id}>
+            <span>{l.name}</span>
+          </Link>
+        ))}
+      </ul>
+
+    </>
   )
 };
