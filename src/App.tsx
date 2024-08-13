@@ -22,7 +22,6 @@ export interface Item {
 
 function App() {
 
-
   return (
     <HeaderProvider>
       <MainLayout

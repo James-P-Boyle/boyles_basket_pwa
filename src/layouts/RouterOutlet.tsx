@@ -4,9 +4,9 @@ export default function RouterOutlet() {
 
   return (
     <>
-      <aside>
-        <Outlet />
-      </aside>
+
+      <Outlet />
+
     </>
 
   )

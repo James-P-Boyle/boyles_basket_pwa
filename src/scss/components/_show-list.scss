@@ -11,21 +11,31 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       padding-left: 0.4rem;
+    }
 
-      .delete {
-        background-color: transparent;
-        padding: 0.4rem;
-        svg {
-          stroke: white;
-          height: 1.2rem;
-          width: 1.2rem;
-          &:hover {
-            stroke: rgba(217, 19, 19, 0.968);
-          }
-        }
-      }
+  }
+}
+
+.listTitle {
+  display: flex;
+  // align-items:normal;
+  justify-content: center;
+
+  svg {
+    margin-top: 10px;
+  }
+}
+
+.delete {
+  background-color: transparent;
+  padding: 0.4rem;
+  svg {
+    stroke: white;
+    height: 1.2rem;
+    width: 1.2rem;
+    &:hover {
+      stroke: rgba(217, 19, 19, 0.968);
     }
   }
 }

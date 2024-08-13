@@ -4,14 +4,16 @@ import Popup from "./Popup"
 interface DeleteButtonProps {
   onCLick: () => void
   confirmBeforeDelete?: boolean
+  deleteMessage?: string
 }
 
 export default function DeleteButton({
   onCLick,
-  confirmBeforeDelete = false
+  confirmBeforeDelete = false,
+  deleteMessage = "Are you sure you want to delete this item?"
 }: DeleteButtonProps) {
 
-  const [showConfirm, setShowConfirm] = useState(confirmBeforeDelete)
+  const [showConfirm, setShowConfirm] = useState(false)
 
   const handleDeleteClick = () => {
     if(confirmBeforeDelete){
@@ -34,7 +36,7 @@ export default function DeleteButton({
   return (
     <>
       <button
-        onClick={() => setShowConfirm(true)}
+        onClick={() => handleDeleteClick()}
         className="delete"
       >
         <svg xmlns="http://www.w3.org/2000/svg" strokeWidth={1} fill="none" viewBox="0 0 24 24">
@@ -42,16 +44,19 @@ export default function DeleteButton({
         </svg>
       </button>
 
-      <Popup
-        isOpen={showConfirm}
-        onClose={() => setShowConfirm(false)}
-        label="Are you sure you want to delete this item?"
-      >
-        <>
-          <button onClick={confirmDelete}>Yes</button>
-          <button onClick={cancelDelete}>No</button>
-        </>
-      </Popup>
+      {confirmBeforeDelete && showConfirm ? (
+         <Popup
+          isOpen={showConfirm}
+          onClose={() => setShowConfirm(false)}
+          label={deleteMessage}
+        >
+          <>
+            <button onClick={confirmDelete}>Yes</button>
+            <button onClick={cancelDelete}>No</button>
+          </>
+        </Popup>
+      ) : null}
+
 
     </>
   )

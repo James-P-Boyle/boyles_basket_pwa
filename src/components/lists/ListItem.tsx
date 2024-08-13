@@ -1,24 +1,36 @@
 import { Item } from "../../App";
+import useList from "../../hooks/useList";
 import DeleteButton from "../DeleteButton";
+import EditButton from "../EditButton";
 
 interface ListItemProps {
   item: Item,
   handleDelete: (item: Item) => void
+  handleUpdate: (item: string) => void
 }
 
 export default function ListItem({
   item,
-  handleDelete
+  handleDelete,
+  handleUpdate
 }: ListItemProps) {
+
   return (
     <div className="item">
       <span>
         {item.name}
       </span>
-      <DeleteButton
-        onCLick={() => handleDelete(item)}
 
-      />
+      <div className="item-controls">
+        <EditButton
+            onSubmit={handleUpdate}
+            label={`Update "${item.name}"`}
+          />
+        <DeleteButton
+          onCLick={() => handleDelete(item)}
+        />
+      </div>
+
     </div>
   )
 };
