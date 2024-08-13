@@ -70,7 +70,6 @@ const ShowHeader = ({
 }) => {
   return (
     <>
-      <span className="date">{new Date(list!.createdAt).toLocaleDateString()}</span>
       <div className="listTitle">
         <EditButton
           onSubmit={updateListName}

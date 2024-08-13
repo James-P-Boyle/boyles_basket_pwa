@@ -1,39 +1,41 @@
 import { v4 as uuid} from 'uuid'
 
 import { List } from "@/App"
-import InputToggleButton from "@components/InputToggleButton"
+import { generateUniqueListName, getWeekNumber } from '@/shared/utils'
 
 interface CreateProps {
   addNewList: (newList: List) => void
+  lists: List[]
 }
 export default function Create({
-  addNewList
+  addNewList,
+  lists
 }: CreateProps) {
 
-  const handleCreateList = (listName: string) => {
-    if(!listName.trim()) return
-
+  const handleCreateList = () => {
     const listId = uuid()
+
+    const currentDate = new Date()
+    const weekNumber = getWeekNumber(currentDate)
+
+    let baseName = `Week ${weekNumber}`
+    let name = generateUniqueListName(lists, baseName)
 
     const newList: List = {
       id: listId,
-      name: listName,
-      createdAt: new Date(),
+      name,
+      createdAt: currentDate,
       items: []
     }
 
     addNewList(newList)
-    // navigate(`/list/${listId}`)
   }
 
   return (
     <div id="createList">
-      <InputToggleButton
-        ctaLabel="Create New"
-        submitLabel="Continue..."
-        placeholderText="New list name"
-        onSave={handleCreateList}
-      />
+      <button onClick={handleCreateList}>
+        Create New List
+      </button>
     </div>
   )
 }

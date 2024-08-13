@@ -10,7 +10,7 @@ export default function Index() {
   return (
     <>
 
-      <CreateList addNewList={addNewList} />
+      <CreateList addNewList={addNewList} lists={lists} />
 
       <ul className="list">
         {lists.map((l) => (
