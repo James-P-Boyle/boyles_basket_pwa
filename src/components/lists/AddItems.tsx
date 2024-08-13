@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Item } from "../../App"
+import { v4 as uuid} from 'uuid'
 
 interface AddItemsProps {
   onAddItem: (item: Item) => void
@@ -11,7 +12,9 @@ export default function AddItems({ onAddItem }: AddItemsProps) {
   const handleAddItem = () => {
     if (!newItemName.trim()) return
 
+    const itemId = uuid()
     const newItem: Item = {
+      id: itemId,
       name: newItemName,
     }
 

@@ -8,13 +8,14 @@ import MainLayout from './layouts/MainLayout'
 import { HeaderProvider } from './contexts/HeaderContext'
 
 export interface List {
-  name: string
   id: string
+  name: string
   createdAt: Date
   items: Item[]
 }
 
 export interface Item {
+  id: string
   name: string
   price?: number
   isPurchased?: boolean

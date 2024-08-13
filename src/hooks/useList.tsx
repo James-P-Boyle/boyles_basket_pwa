@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Item, List } from "../App"
 import useLocalStorage from "./useLocalStorage"
 import { useCallback, useMemo } from "react"
+import ListItem from "../components/lists/ListItem"
 
 export default function useList(id?: string) {
   const [lists, setLists] = useLocalStorage<List[]>('lists', {})
@@ -44,11 +45,38 @@ export default function useList(id?: string) {
     updateItems(items => [...items, newItem])
   }, [updateItems])
 
-  const deleteItem = useCallback((itemToDelete: Item) => {
-    updateItems(items => items.filter(item => item !== itemToDelete))
-  }, [updateItems])
+  const updateItem = useCallback((itemId: string, updatedItem: Partial<Item>) => {
+    setLists(prevLists => prevLists.map(list => {
+      if (list.id !== id) return list
+      return {
+        ...list,
+        items: list.items.map(item =>
+          item.id === itemId ? { ...item, ...updatedItem } : item
+        )
+      }
+    }))
+  }, [id, setLists])
+
+  const deleteItem = useCallback((itemId: string) => {
+    setLists(prevLists => prevLists.map(list => {
+      if (list.id !== id) return list
+      return {
+        ...list,
+        items: list.items.filter(item => item.id !== itemId)
+      }
+    }))
+  }, [id, setLists])
 
   const list = useMemo(() => lists.find(list => list.id === id), [lists, id])
 
-  return {lists, list, addNewList, addNewItem, deleteItem, deleteList, updateListName}
+  return {
+    lists,
+    list,
+    addNewList,
+    addNewItem,
+    updateItem,
+    deleteItem,
+    deleteList,
+    updateListName
+  }
 }

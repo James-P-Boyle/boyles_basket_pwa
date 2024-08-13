@@ -6,19 +6,20 @@ import { useContext, useEffect } from "react"
 import { HeaderContext } from "../../contexts/HeaderContext"
 import DeleteButton from "../DeleteButton"
 import EditButton from "../EditButton"
+import { Item } from "../../App"
 
 export default function Show() {
   const { id } = useParams<{ id: string }>()
-  const { list, addNewItem, deleteItem, deleteList, updateListName, updateItems } = useList(id!)
+  const { list, addNewItem, deleteItem, deleteList, updateListName, updateItem } = useList(id!)
   const headerContext = useContext(HeaderContext);
 
-  const handleListNameChange = (newName: string) => {
-    updateListName(newName)
-  }
+  // const handleListNameChange = (newName: string) => {
+  //   updateListName(newName)
+  // }
 
-  const handleUpdateItem = (item: string) => {
-    updateItems(item)
-  }
+  // const handleUpdateItem = (itemId: string, updatedFields: Partial<Item>) => {
+  //   updateItem(itemId, updatedFields)
+  // }
 
   useEffect(() => {
     if(!list) return
@@ -27,7 +28,7 @@ export default function Show() {
         <span className="date">{new Date(list!.createdAt).toLocaleDateString()}</span>
         <div className="listTitle">
         <EditButton
-          onSubmit={handleListNameChange}
+          onSubmit={updateListName}
           label={`Rename "${list.name}"`}
         />
         <h1>{list!.name}</h1>
@@ -60,12 +61,12 @@ export default function Show() {
         {list.items.length === 0 ? (
           "add some groceries"
         ) : (
-          list.items.map((item, index) => (
+          list.items.map((item) => (
             <ListItem
-              key={item.name + index}
+              key={item.id}
               item={item}
-              handleDelete={deleteItem}
-              listId={list.id}
+              handleDelete={() => deleteItem(item.id)}
+              handleUpdate={(updatedFields) => updateItem(item.id, updatedFields)}
             />
           ))
         )}

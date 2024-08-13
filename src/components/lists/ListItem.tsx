@@ -1,12 +1,11 @@
 import { Item } from "../../App";
-import useList from "../../hooks/useList";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 
 interface ListItemProps {
   item: Item,
-  handleDelete: (item: Item) => void
-  handleUpdate: (item: string) => void
+  handleDelete: (id: string) => void
+  handleUpdate: (updatedFields: Partial<Item>) => void
 }
 
 export default function ListItem({
@@ -14,6 +13,10 @@ export default function ListItem({
   handleDelete,
   handleUpdate
 }: ListItemProps) {
+
+  const handleNameUpdate = (newName: string) => {
+    handleUpdate({ name: newName })
+  }
 
   return (
     <div className="item">
@@ -23,11 +26,11 @@ export default function ListItem({
 
       <div className="item-controls">
         <EditButton
-            onSubmit={handleUpdate}
-            label={`Update "${item.name}"`}
-          />
+          onSubmit={handleNameUpdate}
+          label={`Update "${item.name}"`}
+        />
         <DeleteButton
-          onCLick={() => handleDelete(item)}
+          onCLick={() => handleDelete(item.id)}
         />
       </div>
 
