@@ -7,6 +7,7 @@ import RouterOutlet from '@/layouts/RouterOutlet'
 import Header from '@/partials/Header'
 import MainLayout from '@/layouts/MainLayout'
 import { HeaderProvider } from '@/contexts/HeaderContext'
+import { Category } from '@/constants/categories';
 
 export interface List {
   id: string
@@ -20,6 +21,7 @@ export interface Item {
   name: string
   price?: number
   isPurchased?: boolean
+  category?: Category
 }
 
 function App() {

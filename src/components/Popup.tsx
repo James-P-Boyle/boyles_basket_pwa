@@ -26,7 +26,7 @@ export default function Popup({
     <div className="popup-overlay" onClick={handleOverlayClick}>
       <div className="popup-content">
         <span>{label}</span>
-        <div className="popup-buttons">
+        <div className="popup-children">
           {children}
         </div>
       </div>

@@ -5,16 +5,18 @@ import AddItems from "@components/lists/AddItems"
 import ListItem from "@components/lists/ListItem"
 import DeleteButton from "@components/DeleteButton"
 import EditButton from "@components/EditButton"
-import { List } from "@/App"
+import { Item, List } from "@/App"
 
 import useList from "@/hooks/useList"
 import { HeaderContext } from "@/contexts/HeaderContext"
+import { groupItemsByCategory } from "@/shared/utils"
+import { Category } from "@/constants/categories"
 
 
 export default function Show() {
   const { id } = useParams<{ id: string }>()
   const { list, addNewItem, deleteItem, deleteList, updateListName, updateItem } = useList(id!)
-  const headerContext = useContext(HeaderContext);
+  const headerContext = useContext(HeaderContext)
 
   useEffect(() => {
     if(!list) return
@@ -34,6 +36,8 @@ export default function Show() {
     )
   }
 
+  const groupedItems = groupItemsByCategory(list)
+
   return (
     <div id="show">
 
@@ -45,14 +49,28 @@ export default function Show() {
         {list.items.length === 0 ? (
           "add some groceries"
         ) : (
-          list.items.map((item) => (
-            <ListItem
-              key={item.id}
-              item={item}
-              handleDelete={() => deleteItem(item.id)}
-              handleUpdate={(updatedFields) => updateItem(item.id, updatedFields)}
-            />
-          ))
+          Object.keys(groupedItems).map((categoryKey: string) => {
+            const category = categoryKey as Category
+            const items: Item[] = groupedItems[category]
+
+            if (items.length === 0) return null
+
+            return (
+              <div id="categoryBlock" key={category}>
+                {category !== Category.None && <span id="categoryTitle">{category}</span>}
+
+                {items.map((item) => (
+                  <ListItem
+                    key={item.id}
+                    item={item}
+                    handleDelete={() => deleteItem(item.id)}
+                    handleUpdate={(updatedFields) => updateItem(item.id, updatedFields)}
+                  />
+                ))}
+              </div>
+            )
+          })
+
         )}
       </div>
     </div>
@@ -77,7 +95,7 @@ const ShowHeader = ({
         />
         <h1>{list!.name}</h1>
         <DeleteButton
-          onCLick={() => deleteList(list!.id!)}
+          onClick={() => deleteList(list!.id!)}
           confirmBeforeDelete
           deleteMessage="Are you sure you want to delete this list?"
         />

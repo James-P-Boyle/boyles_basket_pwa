@@ -1,13 +1,36 @@
 #addItems {
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
+  display: grid;
+  background-color: $bg-elevated-2;
+  padding: 0.8rem;
+  grid-template-columns: 1fr 160px 160px;
+  gap: 0.8rem;
+  max-width: 100%;
+  border-radius: 8px;
+
+  #category-select {
+
+    select {
+      border-radius: 8px;
+      border: 1px solid transparent;
+      height: 100%;
+      width: 100%;
+      padding: 0.4rem;
+      font-size: 1em;
+      font-family: inherit;
+      background-color: $bg-elevated-3;
+    }
+  }
+
+  #showCategorySelect {
+    background-color: $bg-elevated-3;
+    color: $text-secondary;
+  }
 
   button {
     flex-shrink: 0;
   }
 
   @media screen and (max-width: $mobile-breakpoint) {
-    flex-direction: column;
+    grid-template-columns: auto;
   }
 }

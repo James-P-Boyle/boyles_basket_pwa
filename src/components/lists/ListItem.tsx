@@ -30,7 +30,7 @@ export default function ListItem({
           label={`Update "${item.name}"`}
         />
         <DeleteButton
-          onCLick={() => handleDelete(item.id)}
+          onClick={() => handleDelete(item.id)}
         />
       </div>
 
