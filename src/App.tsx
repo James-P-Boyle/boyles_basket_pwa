@@ -1,11 +1,12 @@
 
 import { Route, Routes } from 'react-router-dom'
-import ListIndex from './components/lists/Index'
-import ShowList from './components/lists/Show'
-import RouterOutlet from './layouts/RouterOutlet'
-import Header from './partials/Header'
-import MainLayout from './layouts/MainLayout'
-import { HeaderProvider } from './contexts/HeaderContext'
+
+import ListIndex from '@components/lists/Index'
+import ShowList from '@components/lists/Show'
+import RouterOutlet from '@/layouts/RouterOutlet'
+import Header from '@/partials/Header'
+import MainLayout from '@/layouts/MainLayout'
+import { HeaderProvider } from '@/contexts/HeaderContext'
 
 export interface List {
   id: string

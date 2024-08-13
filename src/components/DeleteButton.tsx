@@ -1,5 +1,6 @@
 import { useState } from "react"
-import Popup from "./Popup"
+
+import Popup from "@components/Popup"
 
 interface DeleteButtonProps {
   onCLick: () => void

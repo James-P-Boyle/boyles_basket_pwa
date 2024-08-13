@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
-import { useNavigate } from "react-router-dom";
-import BackButton from "../components/BackButton";
+
+import BackButton from "@/components/BackButton"
 
 interface MainLayoutProps {
   header: ReactNode
@@ -24,4 +24,4 @@ export default function MainLayout({
       </main>
     </>
   )
-};
+}

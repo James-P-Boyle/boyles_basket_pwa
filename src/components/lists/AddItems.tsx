@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { Item } from "../../App"
 import { v4 as uuid} from 'uuid'
+
+import { Item } from "@/App"
 
 interface AddItemsProps {
   onAddItem: (item: Item) => void

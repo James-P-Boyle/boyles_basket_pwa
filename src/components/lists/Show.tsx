@@ -1,12 +1,15 @@
-import { useParams } from "react-router-dom"
-import AddItems from "./AddItems"
-import ListItem from "./ListItem"
-import useList from "../../hooks/useList"
 import { useContext, useEffect } from "react"
-import { HeaderContext } from "../../contexts/HeaderContext"
-import DeleteButton from "../DeleteButton"
-import EditButton from "../EditButton"
-import { List } from "../../App"
+import { useParams } from "react-router-dom"
+
+import AddItems from "@components/lists/AddItems"
+import ListItem from "@components/lists/ListItem"
+import DeleteButton from "@components/DeleteButton"
+import EditButton from "@components/EditButton"
+import { List } from "@/App"
+
+import useList from "@/hooks/useList"
+import { HeaderContext } from "@/contexts/HeaderContext"
+
 
 export default function Show() {
   const { id } = useParams<{ id: string }>()

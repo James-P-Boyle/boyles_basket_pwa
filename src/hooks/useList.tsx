@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
-import { Item, List } from "../App"
-import useLocalStorage from "./useLocalStorage"
 import { useCallback, useMemo } from "react"
-import ListItem from "../components/lists/ListItem"
+import { useNavigate } from "react-router-dom"
+
+import { Item, List } from "@/App"
+import useLocalStorage from "@/hooks/useLocalStorage"
 
 export default function useList(id?: string) {
   const [lists, setLists] = useLocalStorage<List[]>('lists', {})

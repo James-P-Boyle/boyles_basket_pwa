@@ -1,6 +1,6 @@
-import { Item } from "../../App";
-import DeleteButton from "../DeleteButton";
-import EditButton from "../EditButton";
+import { Item } from "@/App"
+import DeleteButton from "@components/DeleteButton"
+import EditButton from "@components/EditButton"
 
 interface ListItemProps {
   item: Item,
@@ -36,4 +36,4 @@ export default function ListItem({
 
     </div>
   )
-};
+}

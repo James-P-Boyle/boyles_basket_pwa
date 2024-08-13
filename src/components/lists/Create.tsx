@@ -1,7 +1,7 @@
 import { v4 as uuid} from 'uuid'
-import { List } from "../../App"
-import InputToggleButton from "../InputToggleButton"
-import { useNavigate } from "react-router-dom"
+
+import { List } from "@/App"
+import InputToggleButton from "@components/InputToggleButton"
 
 interface CreateProps {
   addNewList: (newList: List) => void
@@ -9,8 +9,6 @@ interface CreateProps {
 export default function Create({
   addNewList
 }: CreateProps) {
-
-  const navigate = useNavigate()
 
   const handleCreateList = (listName: string) => {
     if(!listName.trim()) return

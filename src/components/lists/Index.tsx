@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
-import useList from "../../hooks/useList"
-import CreateList from './Create'
+
+import useList from "@/hooks/useList"
+import CreateList from '@components/lists/Create'
 
 export default function Index() {
 
