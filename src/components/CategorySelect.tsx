@@ -17,6 +17,7 @@ export default function CategorySelect({
       {label && (<label htmlFor="category-select">{label}</label>)}
       <select
         value={value}
+        autoFocus
         onChange={(e) => onChange(e.target.value as Category)}
       >
         {CATEGORIES.map((category) => (

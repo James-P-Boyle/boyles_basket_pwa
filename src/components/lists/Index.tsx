@@ -12,7 +12,7 @@ export default function Index() {
 
       <CreateList addNewList={addNewList} lists={lists} />
 
-      <ul className="list">
+      <ul>
         {lists.map((l) => (
           <Link className="listLink" to={`/list/${l.id}`} key={l.id}>
             <span>{l.name}</span>

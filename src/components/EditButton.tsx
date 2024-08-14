@@ -46,7 +46,7 @@ export default function EditButton({
             required
             onChange={(e) => setName(e.target.value)}
           />
-          <button onClick={handleSubmit}>Save</button>
+          <button className="secondaryButton" onClick={handleSubmit}>Save</button>
           </>
         </Popup>
       ) : null}

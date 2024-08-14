@@ -39,6 +39,7 @@ export default function AddItems({ onAddItem }: AddItemsProps) {
       <input
         type="text"
         placeholder="Add grocery..."
+        autoFocus
         value={newItemName}
         onChange={(e) => setNewItemName(e.target.value)}
       />
@@ -52,7 +53,7 @@ export default function AddItems({ onAddItem }: AddItemsProps) {
         <button id="showCategorySelect" onClick={() => setShowCategorySelect(true)}>Category</button>
       )}
 
-      <button onClick={handleAddItem}>Add Item</button>
+      <button className="secondaryButton" onClick={handleAddItem}>Add Item</button>
     </div>
   )
 }

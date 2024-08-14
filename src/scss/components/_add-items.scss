@@ -26,11 +26,11 @@
     color: $text-secondary;
   }
 
-  button {
-    flex-shrink: 0;
-  }
-
   @media screen and (max-width: $mobile-breakpoint) {
     grid-template-columns: auto;
+    button {
+      flex-shrink: 0;
+      padding: 0.5rem;
+    }
   }
 }
