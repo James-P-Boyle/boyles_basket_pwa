@@ -1,6 +1,7 @@
 import { Item } from "@/App"
 import DeleteButton from "@components/DeleteButton"
 import EditButton from "@components/EditButton"
+import EditItem from "./EditItem"
 
 interface ListItemProps {
   item: Item,
@@ -26,10 +27,10 @@ export default function ListItem({
 
       <div className="item-controls">
         <EditButton
-          item={item}
-          onSubmit={handleItemUpdate}
           label={`Update "${item.name}"`}
+          popupForm={<EditItem item={item} handleUpdate={handleItemUpdate}/>}
         />
+
         <DeleteButton
           onClick={() => handleDelete(item.id)}
         />

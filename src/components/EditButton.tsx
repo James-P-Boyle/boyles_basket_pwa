@@ -1,27 +1,20 @@
-import { useState } from "react"
+import { ReactNode, useState } from "react"
 
 import Popup from "@components/Popup"
-import EditItem from "./items/EditItem"
-import { Item } from "@/App"
+import React from "react"
 
 interface EditButtonProps {
-  item: Item
-  onSubmit: (newItem: Item) => void
   label?: string
+  popupForm: ReactNode
 }
 
 export default function EditButton({
-  item,
-  onSubmit,
-  label = ""
+  label = "",
+  popupForm
 }: EditButtonProps) {
 
   const [showForm, setShowForm] = useState(false)
-
-  const handleUpdate = (newItem: Item) => {
-    onSubmit(newItem)
-    setShowForm(false)
-  }
+  const closeForm = () => setShowForm(false)
 
   return (
     <>
@@ -40,10 +33,7 @@ export default function EditButton({
           onClose={() => setShowForm(false)}
           label={label}
         >
-         <EditItem
-            item={item}
-            handleUpdate={handleUpdate}
-         />
+          {React.cloneElement(popupForm as React.ReactElement, { closeForm })}
         </Popup>
       ) : null}
 

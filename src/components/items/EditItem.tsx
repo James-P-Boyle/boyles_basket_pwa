@@ -6,17 +6,24 @@ import { Category } from "@/constants/categories"
 interface EditItemProps {
   item: Item
   handleUpdate: (newItem: Item) => void
+  closeForm?: () => void
 }
 
 export default function EditItem({
   item,
-  handleUpdate
+  handleUpdate,
+  closeForm
 }: EditItemProps) {
 
   const [updatedItem, setUpdatedItem] = useState(item)
 
   const handleCategoryChange = (newCategory: Category) => {
     setUpdatedItem((prev) => ({...prev, category: newCategory}))
+  }
+
+  const handleSave = () => {
+    handleUpdate({...item, ...updatedItem})
+    closeForm && closeForm()
   }
 
   return (
@@ -33,7 +40,7 @@ export default function EditItem({
       />
       <button
         className="secondaryButton"
-        onClick={() => handleUpdate({...item, ...updatedItem})}
+        onClick={handleSave}
       >
         Save
       </button>

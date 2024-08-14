@@ -7,10 +7,10 @@
 }
 
 body {
-  font-size: 1.6em;
+  font-size: 1.4em;
   margin: 0;
-  padding: 0 1rem;
-  max-width: 700px;
+  padding: 0 0.6rem;
+  max-width: 800px;
   margin: 0 auto;
   background-color: $bg-base;
   color: $text-primary;
@@ -18,14 +18,13 @@ body {
   position: relative;
   @media screen and (max-width: $mobile-breakpoint) {
     font-size: 1.2em;
-    padding: 0.5rem;
     border:none;
   }
 }
 
 main {
   background-color: $bg-elevated-1;
-  padding: 1rem;
+  padding: $padding;
   border-radius: 10px;
   min-height: 70vh;
 }
@@ -42,7 +41,7 @@ a:hover {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em;
+
   font-size: 1em;
   font-family: inherit;
   background-color: transparent;
@@ -85,7 +84,7 @@ button:focus-visible {
 
 input, select {
   font-size: 1em;
-  padding: 0.5rem;
+  padding: $padding;
   border-radius: 8px;
   border: 1px solid transparent;
   color: $text-secondary;
@@ -107,7 +106,7 @@ input, select {
 ul {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: $gap;
   padding: 0;
 }
 
@@ -135,6 +134,7 @@ svg {
 
 .secondaryButton {
   flex-shrink: 0;
-
+  color: $bg-base;
+  padding: $padding;
   background-color: $accent-secondary;
 }
