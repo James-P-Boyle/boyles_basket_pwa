@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-import AddItems from "@components/lists/AddItems"
-import ListItem from "@components/lists/ListItem"
+import AddItems from "@/components/items/AddItems"
+import ListItem from "@/components/items/ListItem"
 import DeleteButton from "@components/DeleteButton"
 import EditButton from "@components/EditButton"
 import { Item, List } from "@/App"
@@ -89,10 +89,10 @@ const ShowHeader = ({
   return (
     <>
       <div className="listTitle">
-        <EditButton
+        {/* <EditButton
           onSubmit={updateListName}
           label={`Rename "${list.name}"`}
-        />
+        /> */}
         <h1>{list!.name}</h1>
         <DeleteButton
           onClick={() => deleteList(list!.id!)}

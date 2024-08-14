@@ -12,6 +12,7 @@
 }
 
 .popup-content {
+  text-align: center;
   padding: 1rem;
   margin: 0 0.2rem;
   background-color: $bg-elevated-1;
@@ -23,16 +24,6 @@
   justify-content: center;
   gap: 0.4rem;
   color: $text-secondary;
-
-  .popup-children {
-    display: flex;
-    justify-content: end;
-    gap: 0.4rem;
-
-    button {
-      color: $text-secondary;
-    }
-  }
 }
 
 

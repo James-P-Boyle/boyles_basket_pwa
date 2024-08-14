@@ -14,8 +14,8 @@ export default function ListItem({
   handleUpdate
 }: ListItemProps) {
 
-  const handleNameUpdate = (newName: string) => {
-    handleUpdate({ name: newName })
+  const handleItemUpdate = (updatedItem: Partial<Item>) => {
+    handleUpdate(updatedItem)
   }
 
   return (
@@ -26,7 +26,8 @@ export default function ListItem({
 
       <div className="item-controls">
         <EditButton
-          onSubmit={handleNameUpdate}
+          item={item}
+          onSubmit={handleItemUpdate}
           label={`Update "${item.name}"`}
         />
         <DeleteButton

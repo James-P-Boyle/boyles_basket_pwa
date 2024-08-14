@@ -1,24 +1,25 @@
 import { useState } from "react"
 
 import Popup from "@components/Popup"
+import EditItem from "./items/EditItem"
+import { Item } from "@/App"
 
 interface EditButtonProps {
-  onSubmit: (newName: string) => void
+  item: Item
+  onSubmit: (newItem: Item) => void
   label?: string
-  placeHolder?: string
 }
 
 export default function EditButton({
+  item,
   onSubmit,
-  label = "",
-  placeHolder = "Type a new name..."
+  label = ""
 }: EditButtonProps) {
 
   const [showForm, setShowForm] = useState(false)
-  const [name, setName] = useState("")
 
-  const handleSubmit = () => {
-    onSubmit(name)
+  const handleUpdate = (newItem: Item) => {
+    onSubmit(newItem)
     setShowForm(false)
   }
 
@@ -39,15 +40,10 @@ export default function EditButton({
           onClose={() => setShowForm(false)}
           label={label}
         >
-          <>
-          <input
-            type="text"
-            placeholder={placeHolder}
-            required
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button className="secondaryButton" onClick={handleSubmit}>Save</button>
-          </>
+         <EditItem
+            item={item}
+            handleUpdate={handleUpdate}
+         />
         </Popup>
       ) : null}
 
