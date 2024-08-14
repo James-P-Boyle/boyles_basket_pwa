@@ -3,12 +3,10 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
 }
 
 body {
@@ -49,7 +47,6 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-family: inherit;
-  background-color: $accent-primary;
   color: $bg-base;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -57,10 +54,37 @@ button {
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: $accent-primary;
+  box-shadow: 0 0 0 3px rgba($accent-primary, 0.3);
+}
+.roundedButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 0;
+  height: 3rem;
+  width: 3rem;
+  background-color: $bg-elevated-3;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    stroke: $accent-primary;
+  }
+
+  &:hover {
+    background-color: lighten($bg-elevated-3, 10%);
+    transform: scale(1.05);
+
+    svg {
+      stroke: darken($accent-primary, 10%);
+    }
+  }
 }
 
-input {
+input, select {
   font-size: 1em;
   padding: 0.5rem;
   border-radius: 8px;
@@ -95,12 +119,6 @@ svg {
 
   &:hover {
     stroke: $accent-primary;
-  }
-}
-
-svg.danger {
-  &:hover {
-    stroke: red;
   }
 }
 

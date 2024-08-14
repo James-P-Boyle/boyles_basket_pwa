@@ -4,9 +4,4 @@
   width: 100%;
   justify-content: end;
 
-  @media screen and (max-width: $mobile-breakpoint) {
-    flex-direction: column;
-    width: 100%;
-  }
-
 }

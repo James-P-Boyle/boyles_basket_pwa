@@ -13,6 +13,7 @@
 
       #categoryTitle {
         font-size: 2rem;
+        color: $text-secondary;
       }
 
       .item {
@@ -36,8 +37,7 @@
   display: flex;
   // align-items:normal;
   justify-content: center;
-
-
+  color: $text-secondary;
 }
 
 .delete {
