@@ -1,7 +1,11 @@
 header {
   text-align: center;
-  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: $text-primary;
+
+  min-height: 7rem;
 
   h1 {
     margin: 0;
