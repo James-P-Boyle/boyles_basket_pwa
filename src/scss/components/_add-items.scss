@@ -1,9 +1,9 @@
 #addItems {
   display: grid;
   background-color: $bg-elevated-2;
-  padding: 0.8rem;
+  padding: $padding;
   grid-template-columns: 1fr 160px 160px;
-  gap: 0.8rem;
+  gap: $gap;
   max-width: 100%;
   border-radius: 8px;
 
@@ -14,7 +14,7 @@
       border: 1px solid transparent;
       height: 100%;
       width: 100%;
-      padding: 0.4rem;
+      padding: $padding;
       font-size: 1em;
       font-family: inherit;
       background-color: $bg-elevated-3;
@@ -26,11 +26,11 @@
     color: $text-secondary;
   }
 
-  @media screen and (max-width: $mobile-breakpoint) {
+  @media screen and (max-width: $tablet-breakpoint) {
     grid-template-columns: auto;
     button {
       flex-shrink: 0;
-      padding: 0.5rem;
+      padding: $padding;
     }
   }
 }

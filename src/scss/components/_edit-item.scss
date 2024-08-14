@@ -1,14 +1,9 @@
 #editItem {
   display: grid;
   justify-content: end;
-  gap: 0.8rem;
+  gap: $gap;
 
   select {
     width: 100%;
-  }
-
-  button {
-    color: $text-secondary;
-    padding: 0.5rem;
   }
 }

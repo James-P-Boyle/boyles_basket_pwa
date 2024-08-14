@@ -1,7 +1,5 @@
 #createList {
   display: flex;
-  gap: 0.5rem;
-  width: 100%;
+  gap: $gap;
   justify-content: end;
-
 }
