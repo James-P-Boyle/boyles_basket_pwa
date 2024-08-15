@@ -53,7 +53,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
       purpose:'maskable',
     }],
     theme_color:'#171717',
-    background_color:'#f0e7db',
+    background_color:'#121212',
     display:"standalone",
     scope: '/shopping_planner_pwa/',
     start_url: '/shopping_planner_pwa/',
