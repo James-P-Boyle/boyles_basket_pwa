@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('https://james-p-boyle.github.io/shopping_planner_pwa/sw.js', { scope: 'https://james-p-boyle.github.io/shopping_planner_pwa/' })})}
