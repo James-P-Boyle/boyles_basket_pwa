@@ -5,7 +5,7 @@ import path from 'path';
 
 const manifestForPlugin: Partial<VitePWAOptions> = {
   registerType:'prompt',
-  includeAssets:['favicon.ico', "apple-touc-icon.png", "masked-icon.svg"],
+  includeAssets:['favicon.ico', "apple-touch-icon.png", "maskable_icon.png"],
   manifest: {
     name:"React-vite-app",
     short_name:"react-vite-app",
@@ -41,10 +41,16 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
       purpose:'favicon',
     },
     {
-      src: '/maskable_icon.png',
+      src: '/maskable_icon_512x512.png',
       sizes:'512x512',
       type:'image/png',
-      purpose:'any maskable',
+      purpose:'maskable any',
+    },
+    {
+      src: '/maskable_icon_192x192.png',
+      sizes:'192x192',
+      type:'image/png',
+      purpose:'maskable any',
     }],
     theme_color:'#171717',
     background_color:'#f0e7db',
@@ -58,6 +64,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "https://james-p-boyle.github.io/shopping_planner_pwa/",
   plugins: [react(), VitePWA(manifestForPlugin)],
   css: {
     preprocessorOptions: {
