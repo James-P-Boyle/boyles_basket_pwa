@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export default function BackButton() {
 
   const navigate = useNavigate()
+  const location = useLocation();
   const showBackButton = location.pathname !== "/"
   const handleBack = () => {
     navigate(-1)
