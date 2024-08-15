@@ -67,7 +67,7 @@ export default function useList(id?: string) {
     }))
   }, [id, setLists])
 
-  const list = useMemo(() => lists.find(list => list.id === id), [lists, id])
+  const list = useMemo(() => lists && lists.find(list => list.id === id), [lists, id])
 
   return {
     lists,
