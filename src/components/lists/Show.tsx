@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 import AddItems from "@/components/items/AddItems"
 import ListItem from "@/components/items/ListItem"
 import DeleteButton from "@components/DeleteButton"
-import EditButton from "@components/EditButton"
 import { Item, List } from "@/App"
 
 import useList from "@/hooks/useList"
@@ -15,7 +14,7 @@ import { Category } from "@/constants/categories"
 
 export default function Show() {
   const { id } = useParams<{ id: string }>()
-  const { list, addNewItem, deleteItem, deleteList, updateListName, updateItem } = useList(id!)
+  const { list, addNewItem, deleteItem, deleteList, updateItem } = useList(id!)
   const headerContext = useContext(HeaderContext)
 
   useEffect(() => {
@@ -23,7 +22,6 @@ export default function Show() {
     headerContext?.setHeaderContent(
       <ShowHeader
         list={list}
-        updateListName={updateListName}
         deleteList={deleteList}
       />
     )
@@ -79,11 +77,9 @@ export default function Show() {
 
 const ShowHeader = ({
   list,
-  updateListName,
   deleteList
 } : {
   list: List,
-  updateListName: (newName: string) => void,
   deleteList: (listId: string) => void
 }) => {
   return (
