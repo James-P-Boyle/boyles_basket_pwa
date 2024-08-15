@@ -5,7 +5,17 @@ import path from 'path';
 
 const manifestForPlugin: Partial<VitePWAOptions> = {
   registerType:'prompt',
-  includeAssets:['favicon.ico', "apple-touch-icon.png", "maskable_icon.png"],
+  includeAssets:[
+    "favicon.ico",
+    "android-chrome-192x192.png",
+    "android-chrome-512x512.png",
+    "apple-touch-icon.png",
+    "favicon-16x16.png",
+    "favicon-32x32.png",
+    "favicon.ico",
+    "maskable_icon_192x192.png",
+    "maskable_icon_512x512.png"
+  ],
   manifest: {
     name:"React-vite-app",
     short_name:"react-vite-app",
@@ -52,7 +62,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
       type:'image/png',
       purpose:'maskable',
     }],
-    theme_color:'#171717',
+    theme_color: '#1E1E1E',
     background_color:'#121212',
     display:"standalone",
     scope: '/shopping_planner_pwa/',
