@@ -57,7 +57,7 @@ export default function Show() {
               <div id="categoryBlock" key={category}>
                 {category !== Category.None && <span id="categoryTitle">{category}</span>}
 
-                {items.map((item) => (
+                {items && items.map((item) => (
                   <ListItem
                     key={item.id}
                     item={item}

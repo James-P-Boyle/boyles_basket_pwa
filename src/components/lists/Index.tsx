@@ -20,7 +20,7 @@ export default function Index() {
   return (
     <>
       <ul>
-        {lists.map((l) => (
+        {lists && lists.map((l) => (
           <Link className="listLink" to={`/list/${l.id}`} key={l.id}>
             <span>{l.name}</span>
           </Link>

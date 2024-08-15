@@ -10,7 +10,7 @@ export const generateUniqueListName = (lists: { name: string }[], baseName: stri
   let name = baseName
   let suffix = 1
 
-  while(lists.some(list => list.name === name)) {
+  while(lists && lists.some(list => list.name === name)) {
     suffix += 1
     name = `${baseName}.${suffix}`
   }
