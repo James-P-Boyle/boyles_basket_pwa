@@ -44,13 +44,13 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
       src: '/maskable_icon_512x512.png',
       sizes:'512x512',
       type:'image/png',
-      purpose:'maskable any',
+      purpose:'maskable',
     },
     {
       src: '/maskable_icon_192x192.png',
       sizes:'192x192',
       type:'image/png',
-      purpose:'maskable any',
+      purpose:'maskable',
     }],
     theme_color:'#171717',
     background_color:'#f0e7db',
@@ -64,7 +64,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "https://james-p-boyle.github.io/shopping_planner_pwa/",
+  base: "/shopping_planner_pwa/",
   plugins: [react(), VitePWA(manifestForPlugin)],
   css: {
     preprocessorOptions: {
