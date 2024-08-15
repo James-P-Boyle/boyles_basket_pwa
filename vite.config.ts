@@ -17,9 +17,9 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
     "maskable_icon_512x512.png"
   ],
   manifest: {
-    name:"React-vite-app",
-    short_name:"react-vite-app",
-    description:"I am a simple vite app",
+    name:"TheBoylesPWA",
+    short_name:"The-Boyles-Pwa",
+    description:"I am a shopping app, made by the boyle",
     icons:[{
       src: '/android-chrome-192x192.png',
       sizes:'192x192',
