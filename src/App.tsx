@@ -23,7 +23,7 @@ export interface Item {
   listId?: string
   price?: number
   isPurchased?: boolean
-  category?: Category
+  category: Category
 }
 
 function App() {

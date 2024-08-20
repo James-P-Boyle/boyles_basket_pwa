@@ -17,23 +17,29 @@ interface AddItemsProps {
   placeHolder?: string
 }
 
+const initialState = {
+  id: "",
+  name: "",
+  category: Category.None
+}
+
 export default function AddItems({
   addItem,
   addItemToList,
   placeHolder = "Add grocery..."
 }: AddItemsProps) {
-  const [newItemName, setNewItemName] = useState("")
+
+  const [newItem, setNewItem] = useState<Item>(initialState)
   const [showCategorySelect, setShowCategorySelect] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState<Category>(Category.None)
 
   const handleAddItem = () => {
-    if (!newItemName.trim()) return
+    if (!newItem.name.trim()) return
 
-    const newItem: Item = {
-      id: "",
-      name: newItemName,
-      category: selectedCategory ?? Category.None
-    }
+    // const newItem: Item = {
+    //   id: "",
+    //   name: newItemName,
+    //   category: selectedCategory ?? Category.None
+    // }
 
     if(addItemToList !== undefined) {
       const res = addItemToList(newItem)
@@ -44,8 +50,7 @@ export default function AddItems({
     if(addItem !== undefined) {
       addItem(newItem)
     }
-    setNewItemName("")
-    setSelectedCategory(Category.None)
+    setNewItem(initialState)
     setShowCategorySelect(false)
   }
 
@@ -54,7 +59,7 @@ export default function AddItems({
   }
 
   const handleCategoryChange = (newCategory: Category) => {
-    setSelectedCategory(newCategory)
+    setNewItem(prev => ({...prev, category: newCategory}))
   }
 
   return (
@@ -63,14 +68,14 @@ export default function AddItems({
         type="text"
         placeholder={placeHolder}
         autoFocus
-        value={newItemName}
+        value={newItem.name}
         onKeyDown={handleKeyPress}
-        onChange={(e) => setNewItemName(e.target.value)}
+        onChange={(e) => setNewItem(prev => ({...prev, name: e.target.value}))}
       />
 
       {showCategorySelect ? (
         <CategorySelect
-          value={selectedCategory}
+          value={newItem.category}
           onChange={handleCategoryChange}
         />
       ) : (

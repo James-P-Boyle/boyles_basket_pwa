@@ -11,8 +11,6 @@ import { HeaderContext } from "@/contexts/HeaderContext"
 import { groupItemsByCategory } from "@/shared/utils"
 import { Category } from "@/constants/categories"
 
-import EditButton from "../EditButton"
-
 export default function Show() {
   const { id: listId } = useParams<{ id: string }>()
 
