@@ -7,7 +7,7 @@ import '@/scss/app.scss'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/shopping_planner_pwa/">
+    <BrowserRouter basename="/boyles-basket/">
       <App />
     </BrowserRouter>
   </StrictMode>,

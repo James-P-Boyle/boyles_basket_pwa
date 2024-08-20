@@ -7,7 +7,7 @@ import { HeaderContext } from "@/contexts/HeaderContext"
 
 export default function Index() {
 
-  const {lists, addNewList} = useList()
+  const {lists, addNewList } = useList()
   const headerContext = useContext(HeaderContext)
 
   useEffect(() => {

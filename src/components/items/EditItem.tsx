@@ -4,8 +4,8 @@ import CategorySelect from "../CategorySelect"
 import { Category } from "@/constants/categories"
 
 interface EditItemProps {
-  item: Item
-  handleUpdate: (newItem: Item) => void
+  item: Partial<Item>
+  handleUpdate: (newItem: Partial<Item>) => void
   closeForm?: () => void
 }
 

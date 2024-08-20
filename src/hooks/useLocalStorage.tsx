@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react"
 
-interface UseLocalStorageOptions<T> {
-  initialValue?: T
-}
-
 export default function useLocalStorage<T>(
-  key:string,
-  options: UseLocalStorageOptions<T> = {}
+  key: string,
+  initialValue: T
 ) {
-
-  const { initialValue } = options
 
   const [ storedValue, setStoredValue ] = useState<T>(() => {
     try {

@@ -1,15 +1,27 @@
-import { useState } from "react"
-import { v4 as uuid} from 'uuid'
+import { KeyboardEventHandler, useState } from "react"
 
 import { Item } from "@/App"
 import CategorySelect from "../CategorySelect"
 import { Category } from "@/constants/categories"
 
 interface AddItemsProps {
-  onAddItem: (item: Item) => void
+  addItem?: (newItem: Item) => {
+    item?: Item
+    success: boolean
+    message: string
+  }
+  addItemToList?: ((newItem: Omit<Item, "id">) => {
+    success: boolean
+    message: string
+  })
+  placeHolder?: string
 }
 
-export default function AddItems({ onAddItem }: AddItemsProps) {
+export default function AddItems({
+  addItem,
+  addItemToList,
+  placeHolder = "Add grocery..."
+}: AddItemsProps) {
   const [newItemName, setNewItemName] = useState("")
   const [showCategorySelect, setShowCategorySelect] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category>(Category.None)
@@ -17,17 +29,27 @@ export default function AddItems({ onAddItem }: AddItemsProps) {
   const handleAddItem = () => {
     if (!newItemName.trim()) return
 
-    const itemId = uuid()
     const newItem: Item = {
-      id: itemId,
       name: newItemName,
-      category: selectedCategory === Category.None ? undefined : selectedCategory
+      category: selectedCategory ?? Category.None
     }
 
-    onAddItem(newItem)
+    if(addItemToList !== undefined) {
+      const res = addItemToList(newItem)
+      // if(res.success){
+      //   alert(res.message)
+      // }
+    }
+    if(addItem !== undefined) {
+      addItem(newItem)
+    }
     setNewItemName("")
     setSelectedCategory(Category.None)
     setShowCategorySelect(false)
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter') handleAddItem()
   }
 
   const handleCategoryChange = (newCategory: Category) => {
@@ -38,9 +60,10 @@ export default function AddItems({ onAddItem }: AddItemsProps) {
     <div id="addItems">
       <input
         type="text"
-        placeholder="Add grocery..."
+        placeholder={placeHolder}
         autoFocus
         value={newItemName}
+        onKeyDown={handleKeyPress}
         onChange={(e) => setNewItemName(e.target.value)}
       />
 

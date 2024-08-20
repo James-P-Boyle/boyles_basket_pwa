@@ -19,7 +19,6 @@ export default function EditButton({
   return (
     <>
       <button
-        className="delete"
         onClick={() => setShowForm(true)}
       >
         <svg xmlns="http://www.w3.org/2000/svg" strokeWidth={1} fill="none" viewBox="0 0 24 24">

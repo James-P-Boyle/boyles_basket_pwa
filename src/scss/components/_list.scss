@@ -1,4 +1,4 @@
-#show {
+.list {
   display: grid;
   gap: $gap;
 
@@ -7,12 +7,14 @@
     flex-direction: column;
     gap: $gap;
 
-    #categoryBlock {
+    .categoryBlock {
       background-color: $bg-elevated-2;
       border-radius: 8px;
       padding: $padding;
+      display: grid;
+      gap: $gap;
 
-      #categoryTitle {
+      .categoryTitle {
         font-size: 1.8rem;
         color: $text-secondary;
       }
@@ -32,15 +34,4 @@
 
     }
   }
-}
-
-.listTitle {
-  display: flex;
-  // align-items:normal;
-  justify-content: center;
-  color: $text-secondary;
-}
-
-.delete {
-  background-color: transparent;
 }

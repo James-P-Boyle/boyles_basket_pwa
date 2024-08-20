@@ -2,9 +2,10 @@ import { Item } from "@/App"
 import DeleteButton from "@components/DeleteButton"
 import EditButton from "@components/EditButton"
 import EditItem from "./EditItem"
+import { capitalizeFirstLetter } from '../../shared/utils';
 
 interface ListItemProps {
-  item: Item,
+  item: Partial<Item>,
   handleDelete: (id: string) => void
   handleUpdate: (updatedFields: Partial<Item>) => void
 }
@@ -22,7 +23,7 @@ export default function ListItem({
   return (
     <div className="item">
       <span>
-        {item.name}
+        {capitalizeFirstLetter(item.name!)}
       </span>
 
       <div className="item-controls">
@@ -32,7 +33,7 @@ export default function ListItem({
         />
 
         <DeleteButton
-          onClick={() => handleDelete(item.id)}
+          onClick={() => handleDelete(item.id!)}
         />
       </div>
 

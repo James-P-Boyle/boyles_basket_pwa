@@ -138,3 +138,9 @@ svg {
   padding: $padding;
   background-color: $accent-secondary;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}

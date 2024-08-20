@@ -1,5 +1,7 @@
 import { Item, List } from "@/App"
 import { Category } from "@/constants/categories"
+import { useNavigate } from "react-router-dom";
+
 
 export const getWeekNumber = (date: Date): number => {
   const startOfYear = new Date(date.getFullYear(), 0, 1)
@@ -18,7 +20,9 @@ export const generateUniqueListName = (lists: { name: string }[], baseName: stri
   return name
 }
 
-export const groupItemsByCategory = (list: List) => {
+//CONVERT TO REDUCE FN
+export const groupItemsByCategory = (items: Item[]) => {
+
   const groupedItems: Record<Category, Item[]> = {
     [Category.Fruits]: [],
     [Category.Vegetables]: [],
@@ -31,10 +35,27 @@ export const groupItemsByCategory = (list: List) => {
     [Category.None]: []
   }
 
-  list.items.forEach(item => {
+  items.forEach(item => {
     const category = item.category || Category.None
     groupedItems[category].push(item)
   })
 
   return groupedItems
+}
+
+export const delayedNavigate = (url: string, delay: number = 0) => {
+  const navigate = useNavigate()
+
+  setTimeout(() => {
+    navigate(url)
+  }, delay)
+}
+
+export const areStringsEqual = (str1: string, str2: string): boolean => {
+  if (!str1 || !str2) return false
+  return str1.toLowerCase().trim() === str2.toLowerCase().trim()
+}
+
+export const capitalizeFirstLetter = (string: string): string => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }
