@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from "react"
+import { useContext, useEffect, useMemo } from "react"
 import { useParams } from "react-router-dom"
 
 import AddItems from "@/components/items/AddItems"
@@ -10,12 +10,12 @@ import useList from "@/hooks/useList"
 import { HeaderContext } from "@/contexts/HeaderContext"
 import { groupItemsByCategory } from "@/shared/utils"
 import { Category } from "@/constants/categories"
-import useItems from "@/hooks/useItems"
-import useListRelations from "@/hooks/useListRelations"
+
 import EditButton from "../EditButton"
 
 export default function Show() {
   const { id: listId } = useParams<{ id: string }>()
+
   const {
     list,
     listItems,
@@ -23,7 +23,7 @@ export default function Show() {
     addItemToList,
     removeItemFromList,
     updateListName
-  } = useList(listId)
+  } = useList(listId!)
 
   const headerContext = useContext(HeaderContext)
 
@@ -37,7 +37,7 @@ export default function Show() {
       />
     )
     return () => headerContext?.setHeaderContent(null)
-  }, [list, deleteList, updateListName, headerContext])
+  }, [list, deleteList, updateListName])
 
   const groupedItems = useMemo(() => groupItemsByCategory(listItems), [listItems])
 
@@ -71,7 +71,7 @@ export default function Show() {
                   <ListItem
                     key={item.id}
                     item={item}
-                    handleDelete={() => removeItemFromList && removeItemFromList(item.id!)}
+                    handleDelete={() => removeItemFromList(item.id!)}
                     handleUpdate={() => {}}
                   />
                 ))}
@@ -97,7 +97,17 @@ const ShowHeader = ({
 
   return (
     <>
-      <div className="listTitle">
+      <div className="showHead">
+        {/* <EditButton
+          label="Update list name"
+          popupForm={(closef)
+            <div className="row">
+              <input type="text" value={list.name} />
+              <button className="secondaryBtn">Update</button>
+            </div>
+          }
+
+        /> */}
         <h1>{list!.name}</h1>
         <DeleteButton
           onClick={() => deleteList(list!.id!)}

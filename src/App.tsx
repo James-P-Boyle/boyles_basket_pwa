@@ -18,13 +18,12 @@ export interface List {
 }
 
 export interface Item {
-  id?: string
-  listId?: string
   name: string
+  id: string
+  listId?: string
   price?: number
   isPurchased?: boolean
   category?: Category
-  frequency?: number
 }
 
 function App() {

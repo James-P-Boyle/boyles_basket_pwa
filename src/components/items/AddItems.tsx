@@ -1,19 +1,19 @@
-import { KeyboardEventHandler, useState } from "react"
+import { useState } from "react"
 
 import { Item } from "@/App"
 import CategorySelect from "../CategorySelect"
 import { Category } from "@/constants/categories"
 
 interface AddItemsProps {
-  addItem?: (newItem: Item) => {
+  addItem?: ((newItem: Item) => {
     item?: Item
     success: boolean
     message: string
-  }
-  addItemToList?: ((newItem: Omit<Item, "id">) => {
+  } | undefined) | undefined
+  addItemToList?: ((newItem: Item) => {
     success: boolean
     message: string
-  })
+  } | undefined) | undefined
   placeHolder?: string
 }
 
@@ -30,15 +30,16 @@ export default function AddItems({
     if (!newItemName.trim()) return
 
     const newItem: Item = {
+      id: "",
       name: newItemName,
       category: selectedCategory ?? Category.None
     }
 
     if(addItemToList !== undefined) {
       const res = addItemToList(newItem)
-      // if(res.success){
-      //   alert(res.message)
-      // }
+      if(res?.success){
+        alert(res.message)
+      }
     }
     if(addItem !== undefined) {
       addItem(newItem)
@@ -76,7 +77,7 @@ export default function AddItems({
         <button id="showCategorySelect" onClick={() => setShowCategorySelect(true)}>Category</button>
       )}
 
-      <button className="secondaryButton" onClick={handleAddItem}>Add Item</button>
+      <button className="secondaryBtn" onClick={handleAddItem}>Add Item</button>
     </div>
   )
 }

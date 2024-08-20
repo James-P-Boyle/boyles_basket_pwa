@@ -39,7 +39,7 @@ export default function EditItem({
         onChange={(e) => setUpdatedItem((prev) => ({...prev, name: e.target.value}))}
       />
       <button
-        className="secondaryButton"
+        className="secondaryBtn"
         onClick={handleSave}
       >
         Save

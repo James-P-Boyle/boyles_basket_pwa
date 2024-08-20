@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 import useListRelations from "./useListRelations"
 import useItems from "./useItems"
 
-export default function useList(listId?: string) {
+export default function useList(listId: string) {
 
   const [lists, setLists] = useLocalStorage<List[]>('lists', [])
   const { items, addItem, updateItem, deleteItem } = useItems()
@@ -50,37 +50,31 @@ export default function useList(listId?: string) {
     return items.filter(item => listRelations.some(r => r.itemId === item.id))
   }, [listId, items, relations])
 
-  const addItemToList = useCallback((listId: string, newItem: Omit<Item, 'id'>) => {
-    const existingItem = listItems.find(i => i.name.toLowerCase().trim() === newItem.name.toLowerCase().trim())
+  const addItemToList = useCallback((listId: string, newItem: Item) => {
+    const existingItem = listItems.find(i => areStringsEqual(i.name, newItem.name))
 
     if (existingItem) {
       return { success: false, message: "This item is already in the list." }
     }
 
-    let item = items.find(i => i.name.toLowerCase().trim() === newItem.name.toLowerCase().trim())
+    const res = addItem(newItem)
 
-    if (!item) {
-      const res = addItem(newItem)
-      if(res.success){
-        // alert(res.message)
-        item = res.item
-      }
+    if(res.item){
+      // alert(res.message)
+      addRelation(res.item.id, listId)
+
     }
 
-    addRelation(item!.id!, listId)
-    return { success: true, message: "Item added successfully." }
   }, [listItems, items, addItem, addRelation])
 
   const removeItemFromList = useCallback((listId: string, itemId: string) => {
-    removeRelation(itemId, listId)
+
     const item = items.find(i => i.id === itemId)
     if (item) {
-      if (item.frequency! > 1) {
-        updateItem(itemId, { frequency: item.frequency! - 1 })
-      } else {
-        deleteItem(itemId)
-      }
+      deleteItem(itemId)
+      // removeRelation(itemId, listId)
     }
+
   }, [items, removeRelation, updateItem, deleteItem])
 
   const list = useMemo(() => lists.find(list => list.id === listId) || null, [lists, listId])
@@ -92,7 +86,7 @@ export default function useList(listId?: string) {
     addNewList,
     updateListName,
     deleteList,
-    addItemToList: listId ? (newItem: Omit<Item, 'id'>) => addItemToList(listId, newItem) : undefined,
-    removeItemFromList: listId ? (itemId: string) => removeItemFromList(listId, itemId) : undefined,
+    addItemToList: (newItem: Item) => addItemToList(listId, newItem),
+    removeItemFromList: (itemId: string) => removeItemFromList(listId, itemId)
   }
 }

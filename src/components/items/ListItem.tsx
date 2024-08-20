@@ -6,7 +6,7 @@ import { capitalizeFirstLetter } from '../../shared/utils';
 
 interface ListItemProps {
   item: Partial<Item>,
-  handleDelete: (id: string) => void
+  handleDelete: () => void
   handleUpdate: (updatedFields: Partial<Item>) => void
 }
 
@@ -33,7 +33,7 @@ export default function ListItem({
         />
 
         <DeleteButton
-          onClick={() => handleDelete(item.id!)}
+          onClick={handleDelete}
         />
       </div>
 
