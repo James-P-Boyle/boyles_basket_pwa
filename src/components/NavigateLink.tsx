@@ -14,7 +14,6 @@ export default function NavigateLink({
   children,
 } : NavigateLinkProps) {
 
-
   return (
     <NavLink
       to={to}

@@ -8,12 +8,14 @@ interface ListItemProps {
   item: Partial<Item>,
   handleDelete: () => void
   handleUpdate: (updatedFields: Partial<Item>) => void
+  withControls?: boolean
 }
 
 export default function ListItem({
   item,
   handleDelete,
-  handleUpdate
+  handleUpdate,
+  withControls = false
 }: ListItemProps) {
 
   const handleItemUpdate = (updatedItem: Partial<Item>) => {
@@ -26,17 +28,20 @@ export default function ListItem({
         {capitalizeFirstLetter(item.name!)}
       </span>
 
-      <div className="item-controls">
-        <EditButton
-          label={`Update "${item.name}"`}
-          popupForm={<EditItem item={item} handleUpdate={handleItemUpdate}/>}
-        />
+      {withControls && (
+        <div className="item-controls">
+          <EditButton
+            label={`Update "${item.name}"`}
+            title={`Update "${item.name}"`}
+            popupForm={<EditItem item={item} handleUpdate={handleItemUpdate}/>}
+          />
 
-        <DeleteButton
-          onClick={handleDelete}
-        />
-      </div>
-
+          <DeleteButton
+            onClick={handleDelete}
+            title={`Delete "${item.name}"`}
+          />
+        </div>
+      )}
     </div>
   )
 }

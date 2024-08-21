@@ -37,15 +37,22 @@
 }
 
 .listHead {
-  text-align: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
   align-items: center;
   justify-content: center;
   color: $text-primary;
+  gap: $gap;
+  min-height: 6rem;
 
-  min-height: 7rem;
-
-  h1 {
-    margin: 0;
+  .listHeadLeft {
+    max-width: max-content;
+    justify-self: end;
   }
+  .listTitle {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
 }
