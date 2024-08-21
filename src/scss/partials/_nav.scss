@@ -1,0 +1,22 @@
+nav {
+
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  margin: 2rem 0;
+
+  #leftNav {
+    .backButton {
+      border: 2px solid $bg-elevated-2;
+      border-radius: 100%;
+    }
+  }
+
+  #innerNav {
+    display: flex;
+    justify-content: center;
+    gap: $gap;
+  }
+
+
+}

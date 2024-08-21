@@ -36,7 +36,16 @@
   }
 }
 
-.showHead {
+.listHead {
+  text-align: center;
   display: flex;
-  gap: $gap;
+  align-items: center;
+  justify-content: center;
+  color: $text-primary;
+
+  min-height: 7rem;
+
+  h1 {
+    margin: 0;
+  }
 }

@@ -1,24 +1,19 @@
 import { ReactNode } from "react"
 
-import BackButton from "@/components/BackButton"
+import Nav from "@/partials/Nav"
 
 interface MainLayoutProps {
-  header: ReactNode
   children: ReactNode
 }
 
 export default function MainLayout({
-  header,
   children
 }: MainLayoutProps) {
 
-
   return (
     <>
-      <BackButton />
-      <header>
-        {header}
-      </header>
+
+      <Nav />
       <main>
         {children}
       </main>

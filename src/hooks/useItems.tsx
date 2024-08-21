@@ -15,7 +15,6 @@ export default function useItems() {
     if (item) {
       return { item: item, success: true, message: "Item already exists." }
     }
-
     const itemWithId = { ...newItem, id: uuid() }
     setItems(prev => [...prev, itemWithId])
     return { item: itemWithId, success: true, message: "Item added successfully." }

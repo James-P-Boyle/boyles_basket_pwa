@@ -4,12 +4,12 @@ import { v4 as uuid} from 'uuid'
 import { Item, List } from "@/App"
 import useLocalStorage from "@/hooks/useLocalStorage"
 
-import { areStringsEqual, delayedNavigate } from "@/shared/utils"
+import { areStringsEqual, generateUniqueListName, getWeekNumber } from "@/shared/utils"
 import { useNavigate } from "react-router-dom"
 import useListRelations from "./useListRelations"
 import useItems from "./useItems"
 
-export default function useList(listId: string) {
+export default function useList(listId?: string) {
 
   const [lists, setLists] = useLocalStorage<List[]>('lists', [])
   const { items, addItem, updateItem, deleteItem } = useItems()
@@ -17,13 +17,21 @@ export default function useList(listId: string) {
 
   const navigate = useNavigate()
 
-  const addNewList = useCallback((newList: List) => {
-    const listWithId = {...newList, id: uuid()}
-    setLists(prev => [listWithId, ...prev])
-    // delayedNavigate(`/list/${listWithId.id}`)
-    setTimeout(() => {
-      navigate(`/list/${listWithId.id}`)
-    }, 0)
+  const addNewList = useCallback(() => {
+    const currentDate = new Date()
+    const weekNumber = getWeekNumber(currentDate)
+    let baseName = `Week ${weekNumber}`
+    let name = generateUniqueListName(lists, baseName)
+
+    const newList = { id: uuid(), name, createdAt: currentDate, items: [] }
+
+    const existingList = lists.some(list => list.name === name)
+
+    if (!existingList) {
+      setLists(prev => [newList, ...prev])
+    }
+
+    return newList
   }, [setLists])
 
   const updateListName = useCallback((listId: string, newName: string) => {
@@ -86,7 +94,7 @@ export default function useList(listId: string) {
     addNewList,
     updateListName,
     deleteList,
-    addItemToList: (newItem: Item) => addItemToList(listId, newItem),
-    removeItemFromList: (itemId: string) => removeItemFromList(listId, itemId)
+    addItemToList: (newItem: Item) => addItemToList(listId!, newItem),
+    removeItemFromList: (itemId: string) => removeItemFromList(listId!, itemId)
   }
 }

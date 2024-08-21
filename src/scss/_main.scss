@@ -61,8 +61,8 @@ button:focus-visible {
   align-items: center;
   border-radius: 100%;
   padding: 0;
-  height: 3rem;
-  width: 3rem;
+  height: 2.8rem;
+  width: 2.8rem;
   background-color: $bg-elevated-3;
   transition: background-color 0.3s ease, transform 0.3s ease;
 
@@ -79,6 +79,10 @@ button:focus-visible {
     svg {
       stroke: darken($accent-primary, 10%);
     }
+  }
+  @media screen and (min-width: $tablet-breakpoint) {
+    height: 3.5rem;
+    width: 3.5rem;
   }
 }
 
@@ -120,23 +124,8 @@ svg {
   }
 }
 
-#backButton {
-  background-color: transparent;
-  position: absolute;
-  left: 0.5rem;
-  top: 0.7rem;
-  padding: 0;
-}
-
 .listLink {
   color: $text-secondary
-}
-
-.secondaryBtn {
-  flex-shrink: 0;
-  color: $bg-base;
-  padding: $padding;
-  background-color: $accent-secondary;
 }
 
 .row {

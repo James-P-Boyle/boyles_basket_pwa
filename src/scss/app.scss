@@ -1,6 +1,13 @@
 // Main styles
 @import "main";
 
+// Partials
+@import "partials/nav";
+
+// Ui
+@import "components/ui/nav-link";
+@import "components/ui/buttons";
+
 // Components
 @import "components/popup";
 @import "components/suggestions";
@@ -10,6 +17,8 @@
 @import "components/edit-item";
 @import "components/header";
 @import "components/layouts/outlet";
+
+
 
 //Variables
 @import "variables/theme";

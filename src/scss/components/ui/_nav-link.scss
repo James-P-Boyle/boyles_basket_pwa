@@ -1,0 +1,12 @@
+.navLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $accent-primary;
+  border: 2px solid $bg-elevated-2;
+  border-radius: 100%;
+
+  &.activeLink {
+    border: 2px solid $accent-secondary;
+  }
+}

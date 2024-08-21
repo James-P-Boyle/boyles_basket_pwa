@@ -8,7 +8,7 @@ export const getWeekNumber = (date: Date): number => {
   return Math.ceil((((date.getTime() - startOfYear.getTime()) / 86400000) + startOfYear.getDay() + 1) / 7)
 }
 
-export const generateUniqueListName = (lists: { name: string }[], baseName: string): string => {
+export const generateUniqueListName = (lists: Partial<List>[], baseName: string): string => {
   let name = baseName
   let suffix = 1
 
