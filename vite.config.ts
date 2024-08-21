@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import { VitePWA, VitePWAOptions } from "vite-plugin-pwa";
 import path from 'path';
 
-const base = '/boyles-basket/'
+const base = '/boyles_basket_pwa/'
 
 const manifestForPlugin: Partial<VitePWAOptions> = {
   registerType:'prompt',
@@ -69,8 +69,8 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
     theme_color: '#1E1E1E',
     background_color:'#121212',
     display:"standalone",
-    scope: '/boyles-basket/',
-    start_url: '/boyles-basket/',
+    scope: '/boyles_basket_pwa/',
+    start_url: '/boyles_basket_pwa/',
     orientation:'portrait'
   }
 }
@@ -78,7 +78,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/boyles-basket/",
+  base: "/boyles_basket_pwa/",
   plugins: [react(), VitePWA(manifestForPlugin)],
   css: {
     preprocessorOptions: {

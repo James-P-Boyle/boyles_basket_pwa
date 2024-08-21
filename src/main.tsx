@@ -7,7 +7,7 @@ import '@/scss/app.scss'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/boyles-basket/">
+    <BrowserRouter basename="/boyles_basket_pwa/">
       <App />
     </BrowserRouter>
   </StrictMode>,
