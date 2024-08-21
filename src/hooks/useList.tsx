@@ -80,7 +80,9 @@ export default function useList(listId?: string) {
     const item = items.find(i => i.id === itemId)
     if (item) {
       deleteItem(itemId)
+      console.log(listId)
       // removeRelation(itemId, listId)
+
     }
 
   }, [items, removeRelation, updateItem, deleteItem])

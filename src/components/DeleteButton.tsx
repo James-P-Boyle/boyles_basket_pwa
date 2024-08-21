@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 import Popup from "@components/Popup"
-import RoundedButton from "./RoundedButton"
 
 interface DeleteButtonProps {
   onClick: () => void

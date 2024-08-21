@@ -18,8 +18,7 @@ export default function Create() {
     listItems,
     deleteList,
     addItemToList,
-    removeItemFromList,
-    updateListName
+    removeItemFromList
   } = useList(list?.id)
 
   useEffect(() => {
