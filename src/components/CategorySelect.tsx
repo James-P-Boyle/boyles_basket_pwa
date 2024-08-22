@@ -28,7 +28,6 @@ export default function CategorySelect({
             {category}
           </option>
         ))}
-
       </select>
     </div>
   )

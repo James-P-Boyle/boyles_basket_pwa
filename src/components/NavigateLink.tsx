@@ -18,9 +18,7 @@ export default function NavigateLink({
     <NavLink
       to={to}
       title={title}
-      className={({ isActive }) =>
-        `navLink ${className} ${isActive ? 'activeLink' : ''}`
-      }
+      className={({ isActive }) => `navLink ${className} ${isActive ? 'activeLink' : ''}`}
     >
       {children}
     </NavLink>

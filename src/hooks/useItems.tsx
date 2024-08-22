@@ -2,7 +2,7 @@ import { useCallback } from "react"
 import { v4 as uuid} from 'uuid'
 
 import { Item } from "@/App"
-import useLocalStorage from "./useLocalStorage"
+import useLocalStorage from "@/hooks/useLocalStorage"
 import { areStringsEqual } from "@/shared/utils"
 
 export default function useItems() {

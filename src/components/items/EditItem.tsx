@@ -1,6 +1,7 @@
-import { Item } from "@/App"
 import { useState } from "react"
-import CategorySelect from "../CategorySelect"
+
+import { Item } from "@/App"
+import CategorySelect from "@components/CategorySelect"
 import { Category } from "@/constants/categories"
 
 interface EditItemProps {
@@ -46,4 +47,4 @@ export default function EditItem({
       </button>
     </div>
   )
-};
+}

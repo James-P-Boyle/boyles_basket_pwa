@@ -1,6 +1,7 @@
-import NavigateLink from "@/components/NavigateLink"
-import RoundedButton from "@/components/RoundedButton"
 import { useLocation } from "react-router-dom"
+
+import NavigateLink from "@/components/NavigateLink"
+import RoundedButton from "@/components/buttons/RoundedButton"
 
 export default function Nav() {
 
@@ -10,7 +11,6 @@ export default function Nav() {
 
   return (
     <nav>
-
       <div id="leftNav">
         {!isHomePage && (
           <RoundedButton>
@@ -73,7 +73,6 @@ export default function Nav() {
             </NavigateLink>
           </RoundedButton>
         )}
-
       </div>
     </nav>
   )

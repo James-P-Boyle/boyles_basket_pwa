@@ -1,7 +1,7 @@
+import { useNavigate } from "react-router-dom"
+
 import { Item, List } from "@/App"
 import { Category } from "@/constants/categories"
-import { useNavigate } from "react-router-dom";
-
 
 export const getWeekNumber = (date: Date): number => {
   const startOfYear = new Date(date.getFullYear(), 0, 1)
@@ -20,7 +20,7 @@ export const generateUniqueListName = (lists: Partial<List>[], baseName: string)
   return name
 }
 
-//CONVERT TO REDUCE FN
+//REDUCE FN ??
 export const groupItemsByCategory = (items: Item[]) => {
 
   const groupedItems: Record<Category, Item[]> = {

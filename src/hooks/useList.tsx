@@ -1,13 +1,12 @@
 import { useCallback, useMemo } from "react"
+import { useNavigate } from "react-router-dom"
 import { v4 as uuid} from 'uuid'
 
 import { Item, List } from "@/App"
 import useLocalStorage from "@/hooks/useLocalStorage"
-
+import useListRelations from "@/hooks/useListRelations"
+import useItems from "@/hooks/useItems"
 import { areStringsEqual, generateUniqueListName, getWeekNumber } from "@/shared/utils"
-import { useNavigate } from "react-router-dom"
-import useListRelations from "./useListRelations"
-import useItems from "./useItems"
 
 export default function useList(listId?: string) {
 
@@ -82,7 +81,6 @@ export default function useList(listId?: string) {
       deleteItem(itemId)
       console.log(listId)
       // removeRelation(itemId, listId)
-
     }
 
   }, [items, removeRelation, updateItem, deleteItem])

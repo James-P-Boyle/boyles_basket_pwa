@@ -1,9 +1,9 @@
-import useItems from "@/hooks/useItems"
-import AddItems from "./AddItems"
-import { groupItemsByCategory } from "@/shared/utils"
-import { Category } from '../../constants/categories'
 import { Item } from "@/App"
-import ListItem from "./ListItem"
+import ListItem from "@/components/items/ListItem"
+import AddItems from "@/components/items/AddItems"
+import { Category } from '@/constants/categories'
+import useItems from "@/hooks/useItems"
+import { groupItemsByCategory } from "@/shared/utils"
 
 export default function Index() {
 
@@ -12,7 +12,6 @@ export default function Index() {
 
   return (
     <div className="list">
-
       <AddItems
         addItem={addItem}
         placeHolder="Add some groceries"
@@ -42,8 +41,6 @@ export default function Index() {
           )
         })}
       </div>
-
-
     </div>
   )
 }

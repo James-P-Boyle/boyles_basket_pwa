@@ -1,0 +1,1 @@
+export const BASEURL = "/boyles_basket_pwa/"

@@ -1,7 +1,7 @@
 import { List } from "@/App"
-import DeleteButton from "../DeleteButton"
+import DeleteButton from "../buttons/DeleteButton"
 import NavigateLink from '../NavigateLink'
-import EditButton from "../EditButton"
+import EditButton from "../buttons/EditButton"
 
 interface ListHeadProps {
   list: List

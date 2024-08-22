@@ -37,7 +37,6 @@ export default function DeleteButton({
     setShowConfirm(false)
   }
 
-
   return (
     <>
       {rounded ? (
@@ -74,8 +73,6 @@ export default function DeleteButton({
           </>
         </Popup>
       ) : null}
-
-
     </>
   )
 }

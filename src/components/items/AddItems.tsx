@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import { Item } from "@/App"
-import CategorySelect from "../CategorySelect"
+import CategorySelect from "@components/CategorySelect"
 import { Category } from "@/constants/categories"
 
 interface AddItemsProps {

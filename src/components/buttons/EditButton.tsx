@@ -1,7 +1,6 @@
-import { ReactNode, useState } from "react"
+import { ReactNode, useState, cloneElement, ReactElement } from "react"
 
 import Popup from "@components/Popup"
-import React from "react"
 
 interface EditButtonProps {
   label?: string
@@ -35,11 +34,9 @@ export default function EditButton({
           onClose={() => setShowForm(false)}
           label={label}
         >
-          {React.cloneElement(popupForm as React.ReactElement, { closeForm })}
+          {cloneElement(popupForm as ReactElement, { closeForm })}
         </Popup>
       ) : null}
-
-
     </>
   )
 }

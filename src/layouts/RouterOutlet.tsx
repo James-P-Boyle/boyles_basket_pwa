@@ -4,9 +4,7 @@ export default function RouterOutlet() {
 
   return (
     <>
-
       <Outlet />
-
     </>
 
   )

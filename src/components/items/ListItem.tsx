@@ -1,8 +1,8 @@
 import { Item } from "@/App"
-import DeleteButton from "@components/DeleteButton"
-import EditButton from "@components/EditButton"
-import EditItem from "./EditItem"
-import { capitalizeFirstLetter } from '../../shared/utils';
+import EditItem from "@components/items/EditItem"
+import DeleteButton from "@/components/buttons/DeleteButton"
+import EditButton from "@/components/buttons/EditButton"
+import { capitalizeFirstLetter } from '@/shared/utils'
 
 interface ListItemProps {
   item: Partial<Item>,
