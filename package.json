@@ -1,5 +1,6 @@
 {
-  "name": "react-ts",
+  "name": "boyles_basket_pwa",
+  "homepage": "https://james-p-boyle.github.io/boyles_basket_pwa/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
