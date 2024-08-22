@@ -6,10 +6,7 @@ nav {
   margin: 2rem 0;
 
   #leftNav {
-    .backButton {
-      border: 2px solid $bg-elevated-2;
-      border-radius: 100%;
-    }
+
   }
 
   #innerNav {
@@ -18,5 +15,9 @@ nav {
     gap: $gap;
   }
 
+  #rightNav {
+    display: flex;
+    justify-content: end;
+  }
 
 }
