@@ -64,6 +64,24 @@ button:focus-visible {
   border-radius: 100%;
 }
 
+.primaryBtn {
+  border: 4px solid $accent-secondary;
+  svg {
+    stroke: $accent-secondary;
+
+    &.withFill {
+      fill: $accent-secondary;
+    }
+  }
+
+  &:hover {
+    background-color: lighten($bg-elevated-3, 10%);
+    transform: scale(1.05);
+    svg {
+      stroke:  $accent-secondary;
+    }
+  }
+}
 
 .secondaryBtn {
   padding: $padding;
